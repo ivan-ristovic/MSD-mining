@@ -21,23 +21,93 @@
 \author{\href{mailto:mi14031@matf.bg.ac.rs}{Milana Kova\v{c}evo\'c}\\\href{mailto:mi14042@matf.bg.ac.rs}{Ivan Ristovi\'c}}
 \date{jun 2018.}
 
-\maketitle
 
-\abstract{
-blabla
-}
+\maketitle
 
 \tableofcontents
 
 \newpage
 
-\section{Uvod}
-\label{sec:Uvod}
+
+\section{Opis skupa podataka}
+\label{sec:Opis skupa podataka}
+
+\emph{The Million Song Dataset} \cite{Dataset} je skup od milion slogova koji sadr\v{z}e informacije o popularnim pesmama. S obzirom da ovaj skup preveliki za udoban rad, ograni\v{c}i\'c{}emo se na podskup od deset hiljada slogova izdvojen od strane autora originalnog skupa.
+
+Skup u svojoj originalnoj formi je organizovan u HDF5 format \cite{HDF5}. Mi \'c{}emo kori\v{s}\'c{}enjem Python skriptova izdvojiti informacije iz datog modela i podatke organizovati u CSV format, zarad lak\v{s}eg ubacivanja u alate koje \'c{}emo koje \'c{}emo opisati kasnije.
+
+Svaki slog pomenutog skupa podataka sadr\v{z}i informacije o jednoj pesmi. Detaljne informacije o atributima se mogu videti na slici \ref{Atributi}.
+
+\begin{figure}[!h]
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Atribut & Tip podatka & Kratki opis \\
+        \hline
+        analysis sample rate & float & sample rate of the audio used \\
+        artist 7digitalid & int & ID from 7digital.com or -1 \\
+        artist familiarity & float & algorithmic estimation \\
+        artist hotttnesss & float & algorithmic estimation \\
+        artist id & string & Echo Nest ID \\
+        artist latitude & float & latitude \\
+        artist location & string & location name \\
+        artist longitude & float & longitude \\
+        artist mbid & string & ID from musicbrainz.org \\
+        artist mbtags & array string & tags from musicbrainz.org \\
+        artist mbtags count & array int & tag counts for musicbrainz tags \\
+        artist name & string & artist name \\
+        artist playmeid & int & ID from playme.com, or -1 \\
+        artist terms & array string & Echo Nest tags \\
+        artist terms freq & array float & Echo Nest tags freqs \\
+        artist terms weight & array float & Echo Nest tags weight \\
+        audio md5 & string & audio hash code \\
+        bars confidence & array float & confidence measure \\
+        bars start & array float & beginning of bars, usually on a beat \\
+        beats confidence & array float & confidence measure \\
+        beats start & array float & result of beat tracking \\
+        danceability & float & algorithmic estimation \\
+        duration & float & in seconds \\
+        end of fade in & float & seconds at the beginning of the song \\
+        energy & float & energy from listener point of view \\
+        key & int & key the song is in \\
+        key confidence & float & confidence measure \\
+        loudness & float & overall loudness in dB \\
+        mode & int & major or minor \\
+        mode confidence & float & confidence measure \\
+        release & string & album name \\
+        release 7digitalid & int & ID from 7digital.com or -1 \\
+        sections confidence & array float & confidence measure \\
+        sections start & array float & largest grouping in a song, e.g. verse \\
+        segments confidence & array float & confidence measure \\
+        segments loudness max & array float & max dB value \\
+        segments loudness max time & array float & time of max dB value, i.e. end of attack \\
+        segments loudness max start & array float & dB value at onset \\
+        segments pitches & 2D array float & chroma feature, one value per note \\
+        segments start & array float & musical events, ~ note onsets \\
+        segments timbre & 2D array float & texture features (MFCC+PCA-like) \\
+        similar artists & array string & Echo Nest artist IDs (sim. algo. unpublished) \\
+        song hotttnesss & float & algorithmic estimation \\
+        song id & string & Echo Nest song ID \\
+        start of fade out & float & time in sec \\
+        tatums confidence & array float & confidence measure \\
+        tatums start & array float & smallest rythmic element \\
+        tempo & float & estimated tempo in BPM \\
+        time signature & int & estimate of number of beats per bar, e.g. 4 \\
+        time signature confidence & float & confidence measure \\
+        title & string & song title \\
+        track id & string & Echo Nest track ID \\
+        track 7digitalid & int & ID from 7digital.com or -1 \\
+        year & int & song release year from MusicBrainz or 0 \\
+        \hline
+    \end{tabular}
+    \label{Atributi}
+    \caption{Atributi prisutni u skupu koji obradjujemo}
+\end{figure}
 
 
-
-\section{Pomoćne tehnike i alati}
-\label{sec:PomocneTehnike}
+\section{Kori\v{s}\'c{}eni alati}
+\label{sec:Alati}
 
 \cite{KNIME}
 \cite{SPSS}

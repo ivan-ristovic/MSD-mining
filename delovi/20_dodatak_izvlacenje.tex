@@ -1,7 +1,59 @@
 \section{Dodatak}
 \label{sec:DodatakIzvlacenje}
 
-\begin{figure}
+\begin{figure}[h]
+\lstset{style=mystyle}
+\begin{lstlisting}[language=Python, basicstyle=\footnotesize]
+"""
+Alexis Greenstreet (October 4, 2015) University of Wisconsin-Madison
+"""
+class Song:
+    songCount = 0
+
+    def __init__(self, songID):
+        self.id = songID
+        Song.songCount += 1
+        self.albumName = None
+        self.albumID = None
+        self.artistID = None
+        self.artistLatitude = None
+        self.artistLocation = None
+        self.artistLongitude = None
+        self.artistName = None
+        self.danceability = None
+        self.duration = None
+        self.genreList = []
+        self.keySignature = None
+        self.keySignatureConfidence = None
+        self.lyrics = None
+        self.loudness = None
+        self.popularity = None
+        self.tempo = None
+        self.timeSignature = None
+        self.timeSignatureConfidence = None
+        self.title = None
+        self.year = None
+        self.artistFamiliarity = None #float
+        self.artistHottnesss = None #float
+        self.audioMd5 = None # string
+        self.endOfFadeIn = None #float
+        self.energy = None #float
+        self.key = None #int
+        self.keyConfidence = None #float
+        self.mode = None # int
+        self.modeConfidence = None #float
+        self.release = None #string
+        self.songHotttness = None #float
+        self.songId = None #string
+        self.startOfFadeOut = None #float
+        self.trackId = None #string
+        self.genre = None # list of strings
+\end{lstlisting}
+\label{code:ConvertToCSV}
+\caption{Klasa kori\v{s}\'c{]ena za deserijalizaciju podataka.}}
+\end{figure}
+
+\begin{figure}[h]
 \lstset{style=mystyle}
 \begin{lstlisting}[language=Python, basicstyle=\footnotesize]
 """
@@ -10,10 +62,7 @@ Alexis Greenstreet (October 4, 2015) University of Wisconsin-Madison
 outputFile1 = open('SongCSV.csv', 'w')
 csvRowString = ""
 
-csvRowString = ("SongID,AlbumID,AlbumName,ArtistID,ArtistLatitude,ArtistLocation,"+
-    "ArtistLongitude,ArtistName,Danceability,Duration,KeySignature,"+
-    "KeySignatureConfidence,Loudness,Tempo,TimeSignature,TimeSignatureConfidence,"+
-    "Title,Year,ArtistFamiliarity,ArtistHotttnesss,AudioMd5,EndOfFadeIn," + "Energy,Key,KeyConfidence,Mode,ModeConfidence,Release,SongHotttness,StartOfFadeOut,TrackId,Genre")
+csvRowString = ("SongID,AlbumID, ...")
 	csvAttributeList = re.split('\W+', csvRowString)
 for i, v in enumerate(csvAttributeList):
     csvAttributeList[i] = csvAttributeList[i].lower()
@@ -38,81 +87,15 @@ for root, dirs, files in os.walk(basedir):
         song = Song(str(hdf5_getters.get_song_id(songH5File)))
 
         song.artistID = str(hdf5_getters.get_artist_id(songH5File))
-        song.albumID = str(hdf5_getters.get_release_7digitalid(songH5File))
-        song.albumName = str(hdf5_getters.get_release(songH5File))
-        song.artistLatitude = str(hdf5_getters.get_artist_latitude(songH5File))
-        if song.artistLatitude == 'nan':
-            song.artistLatitude = ''
-        song.artistLocation = str(hdf5_getters.get_artist_location(songH5File))
-        song.artistLongitude = str(hdf5_getters.get_artist_longitude(songH5File))
-        if song.artistLongitude == 'nan':
-            song.artistLongitude = ''
-        song.artistName = str(hdf5_getters.get_artist_name(songH5File))
-        song.danceability = hdf5_getters.get_danceability(songH5File)
-        if song.danceability == 0:
-            song.danceability = ''
-        else:
-            song.danceability = str(song.danceability)
-        song.duration = str(hdf5_getters.get_duration(songH5File))
-        song.keySignature = str(hdf5_getters.get_key(songH5File))
-        song.keySignatureConfidence = str(hdf5_getters.get_key_confidence(songH5File))
-        song.loudness = str(hdf5_getters.get_loudness(songH5File))
-        song.tempo = str(hdf5_getters.get_tempo(songH5File))
-        song.timeSignature = str(hdf5_getters.get_time_signature(songH5File))
-        song.timeSignatureConfidence = str(hdf5_getters.get_time_signature_confidence(songH5File))
-        song.title = str(hdf5_getters.get_title(songH5File))
-        song.year = str(hdf5_getters.get_year(songH5File))
-        if song.year == '0':
-            song.year = ''
-        song.artistFamiliarity = str(hdf5_getters.get_artist_familiarity(songH5File))
-        song.artistHotttnesss = str(hdf5_getters.get_artist_hotttnesss(songH5File))
-        song.audioMd5 = str(hdf5_getters.get_audio_md5(songH5File))
-        song.endOfFadeIn = str(hdf5_getters.get_end_of_fade_in(songH5File))
-        song.energy = str(hdf5_getters.get_energy(songH5File))
-        song.key = str(hdf5_getters.get_key(songH5File))
-        song.keyConfidence = str(hdf5_getters.get_key_confidence(songH5File))
-        song.mode = str(hdf5_getters.get_mode(songH5File))
-        song.modeConfidence = str(hdf5_getters.get_mode_confidence(songH5File))
-        song.release = str(hdf5_getters.get_release(songH5File))
-        song.startOfFadeOut = str(hdf5_getters.get_start_of_fade_out(songH5File))
-        song.songHotttness = str(hdf5_getters.get_song_hotttnesss(songH5File))
-        if song.songHotttness == 'nan':
-            song.songHotttness = ''
-        song.trackId = str(hdf5_getters.get_track_id(songH5File))
+        # Isto za ostala polja
+
         artistMbtags = np.array(hdf5_getters.get_artist_mbtags(songH5File))
         song.genre = ' | '.join(artistMbtags)
 
         csvRowString += str(song.songCount) + ","
         csvRowString += song.id + ","
-        csvRowString += song.albumID + ","
-        csvRowString += song.albumName.replace(',',"") + ","
-        csvRowString += song.artistID + ","
-        csvRowString += song.artistLatitude + ","
-        csvRowString += song.artistLocation.replace(',','') + ","
-        csvRowString += song.artistLongitude + ","
-        csvRowString += song.artistName.replace('"',"") + ","
-        csvRowString += song.danceability + ","
-        csvRowString += song.duration + ","
-        csvRowString += song.keySignature + ","
-        csvRowString += song.keySignatureConfidence + ","
-        csvRowString += song.loudness + ","
-        csvRowString += song.tempo + ","
-        csvRowString += song.timeSignature + ","
-        csvRowString += song.timeSignatureConfidence + ","
-        csvRowString += song.title.replace('"',"") + ","
-        csvRowString += song.year + ","
-        csvRowString += song.artistFamiliarity + ","
-        csvRowString += song.artistHotttnesss + ","
-        csvRowString += song.audioMd5 + ","
-        csvRowString += song.endOfFadeIn + ","
-        csvRowString += song.energy + ","
-        csvRowString += song.key + ","
-        csvRowString += song.keyConfidence + ","
-        csvRowString += song.mode + ","
-        csvRowString += song.modeConfidence + ","
-        csvRowString += song.release + ","
-        csvRowString += song.songHotttness + ","
-        csvRowString += song.startOfFadeOut + ","
+        # Isto za ostala polja
+
         csvRowString += song.trackId + ","
         csvRowString += song.genre + "\n"
         csvRowStringTotal += csvRowString
@@ -124,5 +107,5 @@ outputFile1.write(csvRowStringTotal)
 outputFile1.close()
 \end{lstlisting}
 \label{code:ConvertToCSV}
-\caption{Skript kori\v{s}\'c{}en za konvertovanje iz HDF5 u CSV format.}
+\caption{Upro\v{s}\'c{}ena verzija programa kori\v{s}\'c{}enog za konvertovanje iz HDF5 u CSV format.}
 \end{figure}

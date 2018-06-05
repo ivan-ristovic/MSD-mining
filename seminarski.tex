@@ -11,6 +11,7 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+\usepackage[title]{appendix}
 
 \usepackage{listings}
 \definecolor{codegreen}{rgb}{0,0.6,0}
@@ -48,6 +49,8 @@
 
 \maketitle
 
+\input{delovi/00_abstract.tex}
+
 \tableofcontents
 
 \newpage
@@ -62,8 +65,11 @@
 \bibliography{literatura}
 \bibliographystyle{plain}
 
-\appendix
+\newpage
+
+\begin{appendices}
 \input{delovi/20_dodatak_izvlacenje}
+\end{appendices}
 
 
 \end{document}

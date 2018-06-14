@@ -13,44 +13,44 @@ class Song:
     def __init__(self, songID):
         self.id = songID
         Song.songCount += 1
-        self.albumName = None
-        self.albumID = None
-        self.artistID = None
-        self.artistLatitude = None
-        self.artistLocation = None
-        self.artistLongitude = None
-        self.artistName = None
-        self.danceability = None
-        self.duration = None
-        self.genreList = []
-        self.keySignature = None
-        self.keySignatureConfidence = None
-        self.lyrics = None
-        self.loudness = None
-        self.popularity = None
-        self.tempo = None
-        self.timeSignature = None
-        self.timeSignatureConfidence = None
-        self.title = None
-        self.year = None
-        self.artistFamiliarity = None #float
-        self.artistHottnesss = None #float
-        self.audioMd5 = None # string
-        self.endOfFadeIn = None #float
-        self.energy = None #float
-        self.key = None #int
-        self.keyConfidence = None #float
-        self.mode = None # int
-        self.modeConfidence = None #float
-        self.release = None #string
-        self.songHotttness = None #float
-        self.songId = None #string
-        self.startOfFadeOut = None #float
-        self.trackId = None #string
-        self.genre = None # list of strings
+        self.albumID = None                     # string
+        self.albumName = None                   # string
+        self.artistFamiliarity = None           # float
+        self.artistHottnesss = None             # float
+        self.artistID = None                    # string
+        self.artistLatitude = None              # float
+        self.artistLocation = None              # string
+        self.artistLongitude = None             # float
+        self.artistName = None                  # string
+        self.audioMd5 = None                    # string
+        self.danceability = None                # float
+        self.duration = None                    # float
+        self.endOfFadeIn = None                 # float
+        self.energy = None                      # float
+        self.genre = None                       # string
+        self.genreList = []                     # list of strings
+        self.key = None                         # int
+        self.keyConfidence = None               # float
+        self.keySignature = None                # float
+        self.keySignatureConfidence = None      # float
+        self.loudness = None                    # float
+        self.lyrics = None                      # string
+        self.mode = None                        # int
+        self.modeConfidence = None              # float
+        self.popularity = None                  # float
+        self.release = None                     # string
+        self.songHotttness = None               # float
+        self.songId = None                      # string
+        self.startOfFadeOut = None              # float
+        self.tempo = None                       # float
+        self.timeSignature = None               # int
+        self.timeSignatureConfidence = None     # float
+        self.title = None                       # string
+        self.trackId = None                     # string
+        self.year = None                        # int
 \end{lstlisting}
 \label{code:SongClass}
-\caption{Klasa kori\v{s}\'c{]ena za deserijalizaciju podataka.}}
+\caption{Klasa kori\v{s}\'c{}ena za deserijalizaciju podataka.}
 \end{figure}
 
 \begin{figure}[h]

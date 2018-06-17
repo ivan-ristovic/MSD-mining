@@ -3,23 +3,67 @@
 
 Za upotrebu razli\v{c}itih algoritama potrebne su druga\v{c}ije transformacije.
 
+Jedna od op\v{s}tih transformacija je nad atributom koji sadr\v{z}i informacije o \v{z}anru.. \v{Z}anr je podatak koji je dat kao niz niski. Medjutim, sadr\v{z}aj ovog niza nije ta\v{c}no definisan, ve\'c{} on ponekad u sebi sadr\v{z}i \v{c}itavu re\v{c}enicu koja ga opisuje. Jednostavna, a neophodna transformacija je bila da iz ovog niza izbacimo pojavljivanje re\v{c}i \emph{and}, \v{c}ije je \v{c}esto pojavljivanje remetilo rezultate. 
+
 \subsection{Apriori algoritam}
 \label{subsec:Apriori}
 
 \begin{itemize}
-    \item \emph{Zavisnost \v{z}anra od lokacije}
+    \item \emph{Zavisnost \v{z}anrova}
+    Na tabeli \ref{fig:aprioriZanrovi} prikazano je 10 najizra\v{z}ajnijih pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+        \begin{figure}[H]
+            \footnotesize
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Podr\v{s}ka & Pouzdanost & Lift & Glava pravila  & Telo pravila \\
+                \hline
+                0.26458112407211    & 0.740356083086053   &	1.5566461234117	& rock	& pop \\
+                0.26458112407211	& 0.556298773690078	& 1.5566461234117	& pop	& rock	\\
+                0.224814422057264	& 0.992974238875878	& 2.08779198943133	& rock	& classic	\\
+                0.216330858960763	& 0.817635270541082	& 3.61138201461471	& classic	& pop, rock \\
+                0.216330858960763	& 0.962264150943396	& 2.69262639269918	& pop	& rock, classic \\
+                0.216330858960763 	& 1	                & 2.1025641025641	& rock	& pop, classic \\
+                0.16118769883351	& 0.99672131147541	& 2.09567044976881 &	rock &	indie	\\
+                0.14050901378579	& 0.916955017301038	& 5.92252452955397 &	british & 	uk	\\
+                0.14050901378579	& 0.907534246575342	& 5.92252452955397 &	uk  &	 british	\\
+                0.137327677624602	& 0.558189655172414	& 1.17362953138815 &	rock	&	american, classic \\
+                \hline
+            \end{tabular}
+            \label{fig:aprioriZanrovi}
+            \caption{Rezultati Apriori algoritma koji pokazuju zavisnost medju \v{z}anrovima}
+        \end{figure}
+    
     \item \emph{Zavisnost \v{z}anra od decenije}
-    \item \emph{Zavisnost \v{z}anra od lokacije}
+    Na tabeli \ref{fig:aprioriDecade} prikazana su dobijena pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+    Kako se kasnije vidi na slici \ref{fig:YearDuration}, najve\'c{}i deo skupa obradjenih podataka pripada dvehiljaditim godinama. Zbog ovoga se dobijeni rezulati koncentri\v{s}u na ovoj deceniji. Kori\v{s}enje ve\'c{}eg i raznovrnijeg skupa podataka bi doneo druga\v{c}ije rezultate.
+    
+    \begin{figure}[H]
+            \footnotesize
+            \begin{tabular}{|c|c|c|c|c|}
+                \hline
+                Podr\v{s}ka & Pouzdanost & Lift & Glava pravila  & Telo pravila \\
+                \hline
+                0.071580063626723	& 0.813253012048193	& 1.63692121742038	& 00s   & pop, chart \\
+                0.052492046659597	& 0.785714285714286	& 1.58149108095746  & 00s	& rnb, hop, hall, dance, hip \\
+                0.076352067868505	& 0.738461538461539	& 1.48638042853625	& 00s	& dance \\
+                0.061505832449629	& 0.682352941176471	& 1.37344466068178	& 00s   & rnb \\
+                0.061505832449629	& 0.666666666666667	& 1.34187122020633	& 00s	& hop	hip \\
+                0.054082714740191	& 0.6	            & 1.2076840981857	& 00s	& metal \\
+                0.053022269353128	& 0.591715976331361	& 1.19100995876302	& 00s	& rock, alternative \\
+                0.05779427359491	& 0.561855670103093	& 1.13090693043163	& 00s	& alternative \\
+                0.089607635206787	& 0.554098360655738	& 1.11529296499116	& 00s	& indie \\
+                0.089077412513256	& 0.552631578947368	& 1.11234061674999	& 00s	& rock, indie \\
+                \hline
+            \end{tabular}
+            \label{fig:aprioriDecade}
+            \caption{Rezultati Apriori algoritma koji pokazuju zavisnost izmedju \v{z}anrova i decenija tokom koje su bili popularni}
+        \end{figure}
+        
+        
+    \item \emph{Zavisnost \v{z}anra od dr\v{z}ave}
+    Lokacija autora je atribut \v{c}ije ja vrednost \v{c}esto nepostoju\'c{}a. A ukoliko jeste, iste lokacije su na razli\v{c}itim pesmama druga\v{c}ije napisane. Na primer, jedna pesma ima lokaciju \emph{London}, a druga \emph{London, UK}. Ovakvi podaci su doveli do lo\v{s}ih rezultata istra\v{z}ivanja.
 \end{itemize}
 
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 

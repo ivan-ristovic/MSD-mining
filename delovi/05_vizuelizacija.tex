@@ -5,19 +5,17 @@ U ovom odeljku \'c{}emo poku\v{s}ati da \v{c}itaocu damo vizuelni prikaz raznovr
 
 Vizuelizacija originalnog skupa podataka je prikazana na slici \ref{fig:before}. Nedostaju\'c{}e vrednosti su prikazane belom bojom, dok su plavom bojom predstavljene postoju\'c{}e vrednosti atributa.
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.6]{resources/before_processing.png}
+    \includegraphics[scale=0.8]{resources/before_processing.png}
     \label{fig:before}
     \caption{Originalni skup podataka}
 \end{figure}
 
  Sa prikaza skupa podataka se vidi da atribut koji opisuje plesnu mo\'c{} pesme \emph{eng. dancability}, ni u jednom slu\v{c}aju nema postavljenu vrednost, te da je on neupotrebljiv. Takodje, godina, lokacija autora, geografska \v{s}irina, geografska du\v{z}ina i \v{z}anr su atributi koji u velikom broju slu\v{c}ajeva nemaju vrednost. Medjutim, zbog njihove va\v{z}nosti, mi \'c{}emo svoje istra\v{z}ivanje vr\v{s}iti nad onim slogovima za koje su ove vrednosti poznate. Nakon izdvajanja relevantnih atributa za na\v{s}e istra\v{z}ivanje, pripremljen skup podataka je prikazan na slici \ref{fig:after}.
- 
+
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.6]{resources/after_processing.png}
-    \label{fig:after}
+    \includegraphics[scale=0.8]{resources/after_processing.png}
     \caption{Izdvojeni atributi kori\v{s}\'c{}eni u istra\v{z}ivanju}
+    \label{fig:after}
 \end{figure}
 
 // TODO outliers
@@ -27,8 +25,8 @@ Geografska rasprostranjenost autora \v{c}ije su se pesme na\v{s}le u skupu podat
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{resources/Geolokacija.png}
-    \label{fig:Geolokacija}
     \caption{Geografska rasprostranjenost autora}
+    \label{fig:Geolokacija}
 \end{figure}
 
 Spisak najzastupljenijih zanrova u skupu se mo\v{z}e videti na slici \ref{fig:ZastupljenostZanrova}. \v{Z}anr je atribut sa velikom stopom nedostaju\'c{}ih vrednosti, uz dodatni problem re\v{c}enica prisutnih u nizu (podse\'c{}amo na problem naveden prilikom preprocesiranja, poglavlje \ref{sec:Preprocesiranje}), tako da je analiza vr\v{s}ena nad veoma ograni\v{c}enim skupom od oko tri hiljade slogova. Smatramo, da su ovi rezultati u velikoj meri sli\v{c}ni rezultatima koji bi se dobili da je potpuni skup analiziran - ukoliko ne bi bilo nedostaju\'c{}ih vrednosti za atribut \v{z}anr.

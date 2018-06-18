@@ -1,8 +1,142 @@
 \section{Opis skupa podataka}
 \label{sec:Opis skupa podataka}
 
-\emph{The Million Song Dataset} \cite{Dataset} je skup od milion slogova koji sadr\v{z}e informacije o popularnim pesmama iz druge polovine 20-og veka pa sve do po\v{c}etka 21-og veka. S obzirom da ovaj skup preveliki za analizu i primenu kompleksnijih algoritama, u ovom radu \'c{}emo se ograni\v{c}iti na podskup od deset hiljada slogova izdvojen od strane autora originalnog skupa.
+\emph{The Million Song Dataset} \cite{Dataset} je skup od milion slogova koji sadr\v{z}e informacije o popularnim pesmama. S obzirom da ovaj skup preveliki za udoban rad, ograni\v{c}i\'c{}emo se na podskup od deset hiljada slogova izdvojen od strane autora originalnog skupa.
 
-Svaki slog pomenutog skupa podataka sadr\v{z}i informacije o jednoj pesmi: detalje o izvodja\v{c}u, segmentima, tempu kao i ID pesme na raznim online servisima (\emph{Echo Nest} \cite{EchoNest}, \emph{7digital} \cite{7digital},  \emph{MusicBrainz} \cite{MusicBrainz} i \emph{PlayMe} \cite{PlayMe}). Detaljan spisak atributa zajedno sa tipom atributa i kratkim opisom se mo\v{z}e videti na slici \ref{fig:Atributi}.
+Svaki slog pomenutog skupa podataka sadr\v{z}i informacije o jednoj pesmi: detalje o izvodja\v{c}u, segmentima, tempu kao i ID pesme na raznim online servisima (\emph{Echo Nest} \cite{EchoNest}, \emph{7digital} \cite{7digital},  \emph{MusicBrainz} \cite{MusicBrainz} i \emph{PlayMe} \cite{PlayMe}). Detaljne informacije o atributima se mogu videti na slici \ref{fig:Atributi}.
 
-Skup je u svojoj originalnoj formi organizovan u \emph{HDF5} format za skladi\v{s}tenje \cite{HDF5}. Mi \'c{}emo podatke konvertovati u CSV format, zarad lak\v{s}eg ubacivanja u alate koje \'c{}emo koristiti tokom analize (videti poglavlje \ref{sec:Alati}). Ova konverzija je izvr\v{s}ena kori\v{s}\'c{}enjem Python skripti preuzetih sa \emph{MSongsDB} repozitorijuma \cite{MSongsDB}, blago modifikovanih za na\v{s}e potrebe. Pometute skripte koje smo koristili se u svom upro\v{s}\'c{}enom obliku mogu na\'c{}i u dodatku \ref{sec:DodatakIzvlacenje}.
+Skup u svojoj originalnoj formi je organizovan u \emph{HDF5} format \cite{HDF5}. Mi \'c{}emo izdvojiti informacije iz datog modela i podatke organizovati u CSV format, zarad lak\v{s}eg ubacivanja u alate koje \'c{}emo opisati kasnije. Ova transformacija je izvr\v{s}ena kori\v{s}\'c{}enjem Python skripti iz MSongsDB repozitorijuma \cite{MSongsDB}, modifikovanih za na\v{s}e potrebe. Kompletne skripte se mogu na\'c{}i u \ref{sec:DodatakIzvlacenje}.
+
+\begin{figure}[H]
+    \footnotesize
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Atribut & Tip podatka & Kratki opis \\
+        \hline
+        analysis sample rate & float & u\v{c}estalost uzorkovanja \\
+        artist 7digitalid & int & \emph{7digital} ID izvodja\v{c}a ili -1 \\
+        artist familiarity & float & algoritamska aproksimacija \\
+        artist hotttnesss & float & algoritamska aproksimacija \\
+        artist id & string & \emph{Echo Nest} ID izvodja\v{c}a \\
+        artist latitude & float & geografska \v{s}irina \\
+        artist location & string & lokacija autora \\
+        artist longitude & float & geografska du\v{z}ina \\
+        artist mbid & string & MusicBrainz ID izvodja\v{c}a \\
+        artist mbtags & array string & niz MusicBrainz tagova \\
+        artist mbtags count & array int & broj MusicBrainz tagova \\
+        artist name & string & ime autora \\
+        artist playmeid & int & \emph{PlayMe} ID izvodja\v{c}a ili -1 \\
+        artist terms & array string & niz \emph{Echo Nest} tagova \\
+        artist terms freq & array float & frekvencije \emph{Echo Nest} tagova \\
+        artist terms weight & array float & te\v{z}ina \emph{Echo Nest} tagova \\
+        audio md5 & string & MD5 he\v{s} kod audio zapisa \\
+        bars confidence & array float & pouzdanost takta \\
+        bars start & array float & niz po\v{c}etaka taktova \\
+        beats confidence & array float &pouzdanost ritma \\
+        beats start & array float & niz po\v{c}etaka ritmova \\
+        danceability & float & algoritamska aproksimacija \\
+        duration & float & trajanje audio zapisa (u sekundama) \\
+        end of fade in & float & vreme u odnosu na pocetak u kom prestaje\\
+        & & fade-in efekat (u sekundama) \\
+        energy & float & algoritamska aproksimacija energije \\
+        & & pesme od strane slu\v{s}aoca \\
+        key & int & tonalitet u kojem je audio zapis \\
+        key confidence & float & pouzdanost tonaliteta \\
+        loudness & float & prose\v{c}na ja\v{c}ina (u dB) \\
+        mode & int & mod - dur ili mol \\
+        mode confidence & float & pouzdanost moda \\
+        release & string & ime albuma \\
+        release 7digitalid & int & \emph{7digital} ID albuma ili -1 \\
+        sections confidence & array float & niz pouzdanosti stihova \\
+        sections start & array float & po\v{c}eci stihova \\
+        segments confidence & array float & niz pouzdanosti segmenata \\
+        segments loudness max & array float & nig maksimalnih ja\v{c}ina unutar \\
+        & & segmenata (u dB) \\
+        segments loudness max time & array float & niz vremena dostizanja maksimalne ja\v{c}ine \\
+        & & unutar segmenata \\
+        segments loudness max start & array float & niz ja\v{c}ina na po\v{c}ecima segmenata \\
+        segments pitches & 2D array float & niz ja\v{c}ina po segmentima, jedna \\
+        & & vrednost za svaku notu \\
+        segments start & array float & po\v{c}eci segmenata \\
+        segments timbre & 2D array float & informacije o teksturi $(MFCC+PCA)$ \\
+        similar artists & array string & niz \emph{Echo Nest} sli\v{c}nih izvodja\v{c}a \\
+        song hotttnesss & float & algoritamska aproksimacija \\
+        song id & string & \emph{Echo Nest} ID pesme \\
+        start of fade out & float & vreme u odnosu na pocetak u kom po\v{c}inje \\
+        & & fade-out efekat (u sekundama) \\
+        tatums confidence & array float & pouzdanost najmanjih elemenata ritma \\
+        tatums start & array float & niz najmanjih elemenata ritma \\
+        tempo & float & procenjen tempo (u BPM) \\
+        time signature & int & procenjen broj ritmova u taktu, npr. 4 \\
+        time signature confidence & float & pouzdanost procene broja ritmova u taktu \\
+        title & string & naziv pesme \\
+        track id & string & \emph{Echo Nest} ID pesme \\
+        track 7digitalid & int & ID \emph{7digital} ID pesme ili -1 \\
+        year & int & godina izdavanja uzeta sa \emph{MusicBrainz} ili 0 \\
+        \hline
+    \end{tabular}
+    \label{fig:Atributi}
+    \caption{Atributi prisutni u \emph{The Million Song Dataset} skupu podataka}
+\end{figure}
+
+\begin{figure}[H]
+\lstset{style=mystyle}
+\begin{lstlisting}[language=C, basicstyle=\footnotesize]
+    analysis_sample_rate: 22050
+    artist_7digitalid: 61424
+    artist_familiarity: 0.5467275539627645
+    artist_hotttnesss: 0.3861804160792181
+    artist_id: ARE26EG1187B990AEF
+    artist_latitude: 51.77045
+    artist_location: Essex, England
+    artist_longitude: 0.64255
+    artist_mbid: de212b3a-2f54-4def-a13d-5a877bfaeaf7
+    artist_mbtags: shape = (6,)
+    artist_mbtags_count: shape = (6,)
+    artist_name: Sunscreem
+    artist_playmeid: 19156
+    artist_terms: shape = (44,)
+    artist_terms_freq: shape = (44,)
+    artist_terms_weight: shape = (44,)
+    audio_md5: c2f7f92e66d18e86af3752478d3be966
+    bars_confidence: shape = (123,)
+    bars_start: shape = (123,)
+    beats_confidence: shape = (497,)
+    beats_start: shape = (497,)
+    danceability: 0.0
+    duration: 232.4371
+    end_of_fade_in: 0.0
+    energy: 0.0
+    key: 11
+    key_confidence: 0.625
+    loudness: -8.955
+    mode: 0
+    mode_confidence: 0.558
+    release: Looking At You: The Club Anthems
+    release_7digitalid: 196929
+    sections_confidence: shape = (6,)
+    sections_start: shape = (6,)
+    segments_confidence: shape = (1045,)
+    segments_loudness_max: shape = (1045,)
+    segments_loudness_max_time: shape = (1045,)
+    segments_loudness_start: shape = (1045,)
+    segments_pitches: shape = (1045, 12)
+    segments_start: shape = (1045,)
+    segments_timbre: shape = (1045, 12)
+    similar_artists: shape = (100,)
+    song_hotttnesss: nan
+    song_id: SOICLQB12A8C13637C
+    start_of_fade_out: 232.437
+    tatums_confidence: shape = (993,)
+    tatums_start: shape = (993,)
+    tempo: 130.201
+    time_signature: 4
+    time_signature_confidence: 0.0
+    title: Exodus
+    track_7digitalid: 2140010
+    track_id: TRBBBLA128F424E963
+    year: 1995
+\end{lstlisting}
+\label{primer:Song}
+\caption{Primer sloga iz skupa podataka.}
+\end{figure}

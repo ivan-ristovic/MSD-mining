@@ -1,0 +1,69 @@
+\section{Pravila pridruzivanja}
+\label{sec:PravilaPridruzivanja}
+
+// TODO uvodni tekst
+
+
+\subsection{Zavisnosti izmedju \v{z}anrova}
+\label{subsec:AprioriZavisnostZanrova}
+
+Na slici \ref{fig:aprioriZanrovi} prikazano je 10 najizra\v{z}ajnijih pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+
+\begin{figure}[H]
+    \footnotesize
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Podr\v{s}ka & Pouzdanost & Lift & Glava pravila  & Telo pravila \\
+        \hline
+        0.2646 & 0.7404 & 1.5567 & rock & pop \\
+        0.2646 & 0.5563 & 1.5567 & pop & rock \\
+        0.2248 & 0.9930 & 2.0878 & rock & classic \\
+        0.2163 & 0.8176 & 3.6114 & classic & pop, rock \\
+        0.2163 & 0.9623 & 2.6926 & pop & rock, classic \\
+        0.2163 & 1.0000 & 2.1026 & rock & pop, classic \\
+        0.1612 & 0.9967 & 2.0957 & rock & indie \\
+        0.1405 & 0.9170 & 5.9225 & british & uk \\
+        0.1405 & 0.9075 & 5.9225 & uk & british \\
+        0.1373 & 0.5582 & 1.1736 & rock & american, classic \\
+        \hline
+    \end{tabular}
+    \label{fig:aprioriZanrovi}
+    \caption{Rezultati Apriori algoritma koji pokazuju zavisnost medju \v{z}anrovima}
+\end{figure}
+
+
+\subsection{Zavisnost \v{z}anra od decenije}
+\label{subsec:AprioriZavisnostZanraOdDecenije}
+
+Na tabeli \ref{fig:aprioriDecade} prikazana su dobijena pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+Kako se kasnije vidi na slici \ref{fig:YearDuration}, najve\'c{}i deo skupa obradjenih podataka pripada dvehiljaditim godinama. Zbog ovoga se dobijeni rezulati koncentri\v{s}u na ovoj deceniji. Kori\v{s}enje ve\'c{}eg i raznovrnijeg skupa podataka bi doneo druga\v{c}ije rezultate.
+
+\begin{figure}[H]
+    \footnotesize
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Podr\v{s}ka & Pouzdanost & Lift & Glava pravila  & Telo pravila \\
+        \hline
+        0.0716 & 0.8133 & 1.6369 & 00s & pop, chart \\
+        0.0525 & 0.7857 & 1.5815 & 00s & rnb, hop, hall, dance, hip \\
+        0.0764 & 0.7385 & 1.4864 & 00s & dance \\
+        0.0615 & 0.6824 & 1.3734 & 00s & rnb \\
+        0.0615 & 0.6667 & 1.3419 & 00s & hop hip \\
+        0.0541 & 0.6000 & 1.2077 & 00s & metal \\
+        0.0530 & 0.5917 & 1.1910 & 00s & rock, alternative \\
+        0.0578 & 0.5619 & 1.1309 & 00s & alternative \\
+        0.0896 & 0.5541 & 1.1153 & 00s & indie \\
+        0.0891 & 0.5526 & 1.1123 & 00s & rock, indie \\
+        \hline
+    \end{tabular}
+    \label{fig:aprioriDecade}
+    \caption{Rezultati Apriori algoritma koji pokazuju zavisnost izmedju \v{z}anrova i decenija tokom koje su bili popularni}
+\end{figure}
+
+
+\subsection{Zavisnost \v{z}anra od lokacije}
+\label{subsec:AprioriZavisnostZanraOdLokacije}
+
+Lokacija autora je atribut \v{c}ije ja vrednost \v{c}esto nepostoju\'c{}a. A ukoliko jeste, iste lokacije su na razli\v{c}itim pesmama druga\v{c}ije napisane. Na primer, jedna pesma ima lokaciju \emph{London}, a druga \emph{London, UK}. Ovakvi podaci su doveli do lo\v{s}ih rezultata istra\v{z}ivanja.

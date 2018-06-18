@@ -1,36 +1,38 @@
 \section{Vizuelizacija}
 \label{sec:Vizuelizacija}
-Kako bi se razumeli rezultati istra\v{z}ivanja, izvr\v{s}ena je njihova vizuelizacija. Na slici \ref{fig:Geolokacija} prikazana je zastupljenost autora na razli\v{c}itim lokacijama. Ova informacija je kori\v{s}\'c{}ena u odeljku \ref{Genre-Location}.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+U ovom odeljku \'c{}emo poku\v{s}ati da \v{c}itaocu damo vizuelni prikaz raznovrsnosti skupa podataka, uz osvrt na neke zanimljive zaklju\v{c}ke. Neki od atributa koji su vizuelizovani u ovom odeljku nisu u potpunosti prisutni u skupu, tako da je analiza takvih atributa radjena samo nad slogovima gde nema nedostaju\'c{}ih vrednosti za te atribute.
+
+Geografska rasprostranjenost autora \v{c}ije su se pesme na\v{s}le u skupu podataka se mo\v{z}e videti na slici \ref{fig:Geolokacija}. Razli\v{c}ite boje predstavljaju vizuelizaciju godine izdavanja pesme - gradijentni prelaz od plave (1950) do crvene (2010).
 
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.45]{resources/Geolokacija.png}
     \label{fig:Geolokacija}
-    \caption{Geografksa rasprostranjenost autora uz osvrt na godine - gradijentni prelaz od plave (1950) do crvene (2010)}
+    \caption{Geografska rasprostranjenost autora}
 \end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Spisak najzastupljenijih zanrova u skupu se mo\v{z}e videti na slici \ref{fig:ZastupljenostZanrova}. \v{Z}anr je atribut sa velikom stopom nedostaju\'c{}ih vrednosti, uz dodatni problem re\v{c}enica prisutnih u nizu (podse\'c{}amo na problem naveden prilikom preprocesiranja, poglavlje \ref{sec:Preprocesiranje}), tako da je analiza vr\v{s}ena nad veoma ograni\v{c}enim skupom od oko tri hiljade slogova. Smatramo, da su ovi rezultati u velikoj meri sli\v{c}ni rezultatima koji bi se dobili da je potpuni skup analiziran - ukoliko ne bi bilo nedostaju\'c{}ih vrednosti za atribut \v{z}anr.
 
-Zastupljenost \v{z}anrova je prikazana na slici \ref{fig:ZastupljenostZanrova}.
+Grafik zavisnosti godine i trajanja pesme se mo\v{z}e videti na slici \ref{fig:YearDuration}. Jedan zanimljiv zaklju\v{c}ak koji se name\'c{}e, je da se prose\v{c}no trajanje pesama pove\'c{}ava kroz vreme, sa razlikom od oko 20 sekundi u odnosu na 50-te godine pro\v{s}log veka. Detaljniji prikaz promene proseka trajanja se mo\v{z}e videti na slici \ref{fig:YearDurationAvg} Takodje, jasno je da se i raznovrsnost pesama mnogo ve\'c{}a danas - prisutne su i veoma kratke ali i veoma duga\v{c}ke pesme.
+
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.55]{resources/ZastupljenostZanrova.png}
+    \includegraphics[scale=0.5]{resources/ZastupljenostZanrova.png}
     \label{fig:ZastupljenostZanrova}
     \caption{Zastupljenost \v{z}anrova}
 \end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Zavisnost du\v{z}ine pesama u odnosu na godinu nastanka prikazana je na slici \ref{fig:YearDuration}.
 \begin{figure}[H]
     \centering
     \includegraphics[scale=0.4]{resources/year-duration.jpg}
     \label{fig:YearDuration}
-    \caption{Odnos godine i du\v{z}ine pesama}
+    \caption{Odnos godine izdavanja i du\v{z}ine pesme}
 \end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{resources/year-duration.PNG}
+    \label{fig:YearDurationAvg}
+    \caption{Promena proseka du\v{z}ine pesama kroz vreme}
+\end{figure}

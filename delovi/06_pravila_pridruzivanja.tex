@@ -1,13 +1,14 @@
 \section{Pravila pridruzivanja}
 \label{sec:PravilaPridruzivanja}
 
-// TODO uvodni tekst
+Uo\v{c}avanje zavisnosti izmedju atributa je uradjeno kori\v{s}\'c{}enjem algoritma \emph{Apriori}. Najpre, kao \v{s}to je opisano u poglavlju \ref{sec:Preprocesiranje}, bilo je potrebno eleminisati slogove koji sadr\v{z}e nedostaju\'c{}e vrednosti na relevantnim atributima. Slede\'c{}i korak je zavisio od toga koje su zavisnosti analizirane, a vi\v{s}e o tome je dato u narednim potpoglavljima.
 
 
 \subsection{Zavisnosti izmedju \v{z}anrova}
 \label{subsec:AprioriZavisnostZanrova}
 
-Na slici \ref{fig:aprioriZanrovi} prikazano je 10 najizra\v{z}ajnijih pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+Nakon prilagodjavanja atributa \emph{\v{z}anr} algoritmu, dobijeni su rezultati prikazani na slici \ref{fig:aprioriZanrovi}. Na njoj je prikazano 10 najizra\v{z}ajnijih pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+Ovi rezultati su relevantni iako su dobijeni na relativno malim skupom slogova. 
 
 \begin{figure}[H]
     \footnotesize
@@ -36,8 +37,8 @@ Na slici \ref{fig:aprioriZanrovi} prikazano je 10 najizra\v{z}ajnijih pravila so
 \subsection{Zavisnost \v{z}anra od decenije}
 \label{subsec:AprioriZavisnostZanraOdDecenije}
 
-Na tabeli \ref{fig:aprioriDecade} prikazana su dobijena pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
-Kako se kasnije vidi na slici \ref{fig:YearDuration}, najve\'c{}i deo skupa obradjenih podataka pripada dvehiljaditim godinama. Zbog ovoga se dobijeni rezulati koncentri\v{s}u na ovoj deceniji. Kori\v{s}enje ve\'c{}eg i raznovrnijeg skupa podataka bi doneo druga\v{c}ije rezultate.
+Istra\v{z}ivanje koji je \v{z}anr bio zastupljen u nekoj deceniji je dalo no\v{c}ekivane rezultate. Na tabeli \ref{fig:aprioriDecade} prikazana su dobijena pravila zavisnosti sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
+Kako se kasnije vidi na slici \ref{fig:YearDuration}, najve\'c{}i deo skupa obradjenih podataka pripada dvehiljaditim godinama. Zbog ovoga se dobijeni rezulati koncentri\v{s}u na ovoj deceniji. Kori\v{s}enje ve\'c{}eg i raznovrsnijeg skupa podataka bi doneo druga\v{c}ije rezultate.
 
 \begin{figure}[H]
     \footnotesize

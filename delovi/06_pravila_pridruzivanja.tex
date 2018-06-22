@@ -8,14 +8,14 @@ Uo\v{c}avanje zavisnosti izmedju atributa je uradjeno kori\v{s}\'c{}enjem algori
 \label{subsec:AprioriZavisnostZanrova}
 
 Nakon prilagodjavanja atributa \emph{\v{z}anr} algoritmu, dobijeni su rezultati prikazani na slici \ref{fig:aprioriZanrovi}. Na njoj je prikazano 10 najizra\v{z}ajnijih pravila sortirana prvo po podr\v{s}ci, a zatim po lift meri, opadaju\'c{}e.
-Ovi rezultati su relevantni iako su dobijeni na relativno malim skupom slogova. 
+Ovi rezultati su relevantni iako su dobijeni na relativno malim skupom slogova.
 
 \begin{figure}[H]
     \footnotesize
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        Podr\v{s}ka & Pouzdanost & Lift & Glava pravila  & Telo pravila \\
+        Podr\v{s}ka & Pouzdanost & Lift mera & Glava pravila & Telo pravila \\
         \hline
         0.2646 & 0.7404 & 1.5567 & rock & pop \\
         0.2646 & 0.5563 & 1.5567 & pop & rock \\
@@ -45,7 +45,7 @@ Kako se kasnije vidi na slici \ref{fig:YearDuration}, najve\'c{}i deo skupa obra
     \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        Podr\v{s}ka & Pouzdanost & Lift & Glava pravila  & Telo pravila \\
+        Podr\v{s}ka & Pouzdanost & Lift mera & Glava pravila & Telo pravila \\
         \hline
         0.0716 & 0.8133 & 1.6369 & 00s & pop, chart \\
         0.0525 & 0.7857 & 1.5815 & 00s & rnb, hop, hall, dance, hip \\
@@ -67,4 +67,24 @@ Kako se kasnije vidi na slici \ref{fig:YearDuration}, najve\'c{}i deo skupa obra
 \subsection{Zavisnost \v{z}anra od lokacije}
 \label{subsec:AprioriZavisnostZanraOdLokacije}
 
-Lokacija autora je atribut \v{c}ije ja vrednost \v{c}esto nepostoju\'c{}a. A ukoliko jeste, iste lokacije su na razli\v{c}itim pesmama druga\v{c}ije napisane. Na primer, jedna pesma ima lokaciju \emph{London}, a druga \emph{London, UK}. Ovakvi podaci su doveli do lo\v{s}ih rezultata istra\v{z}ivanja.
+Lokacija autora je atribut \v{c}ije ja vrednost \v{c}esto nepostoju\'c{}a. A ukoliko jeste, iste lokacije su na razli\v{c}itim pesmama druga\v{c}ije napisane. Na primer, jedna pesma ima lokaciju \emph{London}, a druga \emph{London, UK}. Ovakvi podaci su doveli do lo\v{s}ih rezultata istra\v{z}ivanja - slika \ref{fig:aprioriLocation}. Nazalost, jedina pravila koja imaju dovoljno veliku pouzdanost su oblika:
+$$\{\emph{uk, british}\} \rightarrow \emph{England}$$
+Ovo nam nije od preteranog zna\v{c}aja jer je o\v{c}ekivano da se u Engleskoj slu\v{s}aju pesme \v{z}anra \emph{british}.
+
+\begin{figure}[H]
+    \footnotesize
+    \centering
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        Podr\v{s}ka & Pouzdanost & Lift mera & Glava pravila & Telo pravila \\
+        \hline
+        0.0525 & 0.8684 & 7.6535 & England & pop, rock, classic, uk, english, british \\
+        0.0541 & 0.7786 & 6.8621 & England & pop, rock, classic, uk, british \\
+        0.0546 & 0.8729 & 7.6928 & England & pop, rock, classic, and, english \\
+        0.0546 & 0.8729 & 7.6928 & England & rock, classic, uk, english, british \\
+        0.0557 & 0.8268 & 7.2865 & England & pop, and, uk, english, british \\
+        \hline
+    \end{tabular}
+    \caption{Rezultati Apriori algoritma koji pokazuju zavisnost izmedju \v{z}anrova i lokacije}
+    \label{fig:aprioriLocation}
+\end{figure}

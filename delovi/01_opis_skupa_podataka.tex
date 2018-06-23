@@ -3,6 +3,6 @@
 
 \emph{The Million Song Dataset} \cite{Dataset} je skup od milion slogova koji sadr\v{z}e informacije o popularnim pesmama. S obzirom da ovaj skup preveliki za udoban rad, ograni\v{c}i\'c{}emo se na podskup od deset hiljada slogova izdvojen od strane autora originalnog skupa.
 
-Svaki slog pomenutog skupa podataka sadr\v{z}i informacije o jednoj pesmi: detalje o izvodja\v{c}u, segmentima, tempu kao i ID pesme na raznim online servisima (\emph{Echo Nest} \cite{EchoNest}, \emph{7digital} \cite{7digital},  \emph{MusicBrainz} \cite{MusicBrainz} i \emph{PlayMe} \cite{PlayMe}). Detaljne informacije o atributima se mogu videti na slici \ref{fig:Atributi}.
+Svaki slog pomenutog skupa podataka sadr\v{z}i informacije o jednoj pesmi: detalje o izvodja\v{c}u, segmentima, tempu kao i ID pesme na raznim online servisima (\emph{Echo Nest} \cite{EchoNest}, \emph{7digital} \cite{7digital},  \emph{MusicBrainz} \cite{MusicBrainz} i \emph{PlayMe} \cite{PlayMe}). Detaljne informacije o atributima se mogu videti na slici \ref{fig:Atributi}. Primer jednog sloga se mo\v{z}e videti u dodatku \ref{sec:DodatakPrimer}.
 
 Skup u svojoj originalnoj formi je organizovan u \emph{HDF5} format \cite{HDF5}. Mi \'c{}emo izdvojiti informacije iz datog modela i podatke organizovati u CSV format, zarad lak\v{s}eg ubacivanja u alate koje \'c{}emo opisati kasnije. Ova transformacija je izvr\v{s}ena kori\v{s}\'c{}enjem Python skripti iz MSongsDB repozitorijuma \cite{MSongsDB}, modifikovanih za na\v{s}e potrebe. Kompletne skripte se mogu na\'c{}i u dodatku \ref{sec:DodatakIzvlacenje}.

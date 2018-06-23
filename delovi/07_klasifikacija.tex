@@ -42,14 +42,31 @@ Dodatno, jedno od mogu\'c{}ih unapredjenja bi bila da se u obzir uzme i atribut 
 \subsection{Klasifikacija stablom odlu\v{c}ivanja}
 \label{subsec:stablo}
 Predvidjanje \v{z}anra koriste\'c{}i stablo odlu\v{c}ivanja je takodje dalo lose rezultate. Preciznost dobijenog modela je $44.6\%$, te je gre\v{s}ka $55.4\%$. Matrica konfuzije je prikazana na slici \ref{fig:confmatrtree}.
+
+\begin{center}
 \begin{figure}[H]
-    \centering
-    \includegraphics[scale=0.7]{resources/confmatrix_tree.png}
+    \footnotesize
+    \begin{tabular}{|c|c|p{1.7cm}|c|c|c|c|p{1cm}|p{1cm}|}
+        \hline
+        Prediction & pop rock & hiphop rnb dance & metal punk & american & reggae & jazz bluess & accustic folk & indie electro \\
+        \hline
+        pop rock & 225 & 53 & 18 & 8 & 5 & 17 & 13 & 0 \\
+        hiphop rnb dance & 48 & 10 & 11 & 0 & 1 & 3 & 1 & 0 \\
+        metal punk & 32 & 11 & 7 & 0 & 0 & 0 & 1 & 0 \\
+        american & 14 & 0 & 1 & 8 & 0 & 1 & 2 & 0 \\
+        reggae & 7 & 2 & 0 & 0 & 0 & 1 & 3 & 0 \\
+        jazz blues & 21 & 2 & 1 & 1 & 1 & 4 & 1 & 0 \\
+        folk accustic & 18 & 4 & 2 & 1 & 1 & 3 & 2 & 0 \\
+        indie electro & 6 & 1 & 0 & 1 & 0 & 0 & 0 & 0 \\
+        \hline
+    \end{tabular}
     \caption{Matrica konfuzije dobijena klasifikacijom stablom odlu\v{c}ivanja}
     \label{fig:confmatrtree}
 \end{figure}
+\end{center}
 
 Na slici \ref{fig:tree} prikazano je dobijeno sablo odlu\v{c}ivanja. Kako vi\v{s}e od polovine pesama iz skupa pripada \v{z}anru \emph{pop rock}, a vrednosti atributa nisu dobre za klasifikaciju, stablo daje lo\v{s}e rezultate.
+
 
 \begin{figure}[H]
     \centering

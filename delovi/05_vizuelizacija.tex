@@ -1,12 +1,12 @@
 %\section{Vizuelizacija}
 %\label{sec:Vizuelizacija}
 
-
 Vizuelizacija originalnog skupa podataka je prikazana na slici \ref{fig:before}. Nedostaju\'c{}e vrednosti su prikazane belom bojom, dok su plavom bojom predstavljene postoju\'c{}e vrednosti atributa.
+
 \begin{figure}[H]
     \includegraphics[scale=0.8]{resources/before_processing.png}
+    \caption{Nedostaju\'c{}e vrednosti u originalnom skupu podataka}
     \label{fig:before}
-    \caption{Originalni skup podataka}
 \end{figure}
 
  Sa prikaza skupa podataka se vidi da atribut koji opisuje plesnu mo\'c{} pesme \emph{eng. dancability}, ni u jednom slu\v{c}aju nema postavljenu vrednost, te da je on neupotrebljiv. Takodje, godina, lokacija autora, geografska \v{s}irina, geografska du\v{z}ina i \v{z}anr su atributi koji u velikom broju slu\v{c}ajeva nemaju vrednost. Medjutim, zbog njihove va\v{z}nosti, mi \'c{}emo svoje istra\v{z}ivanje vr\v{s}iti nad onim slogovima za koje su ove vrednosti poznate. Nakon izdvajanja relevantnih atributa za na\v{s}e istra\v{z}ivanje, pripremljen skup podataka je prikazan na slici \ref{fig:after}.
@@ -49,14 +49,14 @@ Grafik zavisnosti godine i trajanja pesme se mo\v{z}e videti na slici \ref{fig:Y
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{resources/year-duration.jpg}
+    \includegraphics[scale=0.52]{resources/year-duration.jpg}
     \caption{Odnos godine izdavanja i du\v{z}ine pesme}
     \label{fig:YearDuration}
 \end{figure}
 
 \begin{figure}[H]
     \centering
-    \includegraphics[scale=0.6]{resources/year-duration.PNG}
+    \includegraphics[scale=0.5]{resources/year-duration.PNG}
     \caption{Promena proseka du\v{z}ine pesama kroz vreme}
     \label{fig:YearDurationAvg}
 \end{figure}
@@ -75,6 +75,7 @@ Prose\v{c}na du\v{z}ina pesama po dr\v{z}avama je prikazana na slici \ref{fig:Co
 Na slici \ref{fig:loudness} prikazane su vrednosti atributa \emph{loudness}. Ove vrednosti su dobijene na osnovu njihovih proseka tokom trajanja pesme, kao i nekim dodatnim transformacijama. Vise o ovome se mo\v{z}e na\'c{} na zvani\v{c}nom sajtu skupa \cite{Dataset}. Sa grafika se vidi da za atribut \emph{loudness} postoje vrednosti koje izuzetno odstupaju od proseka. Iz toga razloga smo prilikom istra\v{z}ivanja koristili pesme sa vredno\v{s}\'c{}u atributa iz skupa $[-40, 0]$.
 
 \begin{figure}[H]
+    \centering
     \includegraphics[scale=0.55]{resources/loudness.png}
     \caption{Vrednosti atributa \emph{loudness}}
     \label{fig:loudness}
@@ -83,6 +84,7 @@ Na slici \ref{fig:loudness} prikazane su vrednosti atributa \emph{loudness}. Ove
 Na slici \ref{fig:tempo} prikazane su vrednosti atributa \emph{tempo}. Ovaj atribut sadr\v{z}i nekoliko vrednosti koje su dosta ispod proseka. Medjutim, postoji verovatno\'c{}a da su njima predstvaljene nadprose\v{c}no spore pesme te zbog toga nismo vr\v{s}ili nikakvo odsecanje.
 
 \begin{figure}[H]
+    \centering
     \includegraphics[scale=0.6]{resources/tempo.png}
     \caption{Vrednosti atributa \emph{tempo}}
     \label{fig:tempo}

@@ -1,0 +1,85 @@
+% !TEX encoding = UTF-8 Unicode
+
+\documentclass[a4paper]{article}
+
+\usepackage{color}
+\usepackage{url}
+\usepackage[utf8]{inputenc} % make weird characters work
+\usepackage{graphicx}
+\usepackage[english,serbian]{babel}
+\usepackage[unicode]{hyperref}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\hypersetup{colorlinks,citecolor=green,filecolor=green,linkcolor=blue,urlcolor=blue}
+\usepackage[title]{appendix}
+\usepackage{float}
+\usepackage[graphicx]{realboxes}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codeblue}{rgb}{0.0,0,0.82}
+\lstdefinestyle{mystyle}{
+    numbers=left,
+    numberstyle=\scriptsize,
+    numbersep=8pt,
+    commentstyle=\color{codegray},
+    keywordstyle=\color{codegreen},
+    numberstyle=\tiny\color{codeblue},
+    stringstyle=\color{codegreen},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=4,
+    xleftmargin=3em,
+    framexleftmargin=1.5em
+}
+\lstset{style=mystyle}
+
+
+\begin{document}
+
+\title{Analiza ``Million Songs'' skupa podataka\\ \small{Seminarski rad u okviru kursa\\Istra\v{z}ivanje podataka\\ Matematički fakultet}}
+
+\author{\href{mailto:mi14031@matf.bg.ac.rs}{Milana Kova\v{c}evi\'c}\\\href{mailto:mi14042@matf.bg.ac.rs}{Ivan Ristovi\'c}}
+\date{jun 2018.}
+
+\maketitle
+
+\input{delovi/00_abstract.tex}
+
+\tableofcontents
+
+\newpage
+
+\input{delovi/01_opis_skupa_podataka}
+\input{delovi/02_korisceni_alati}
+\input{delovi/03_preprocesiranje}
+\input{delovi/04_prikaz_skupa}
+\input{delovi/05_vizuelizacija}
+\input{delovi/06_pravila_pridruzivanja}
+\input{delovi/08_klasterovanje}
+\input{delovi/07_klasifikacija}
+\input{delovi/10_zakljucak}
+
+\addcontentsline{toc}{section}{Literatura}
+\bibliographystyle{plain}
+\bibliography{literatura}
+
+\newpage
+
+\begin{appendices}
+\input{delovi/21_dodatak_primer}
+\input{delovi/20_dodatak_izvlacenje}
+\input{delovi/22_dodatak_statistika}
+\end{appendices}
+
+
+\end{document}
